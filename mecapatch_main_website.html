@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#071326" />
+  <meta name="description" content="Mecapatch is the company identity behind TechGamesProduction, a team creating Roblox game experiences." />
+  <title>Mecapatch | TechGamesProduction</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #071326;
+      --bg-deep: #050d1b;
+      --panel: rgba(14, 31, 56, .78);
+      --panel-solid: #0d1d35;
+      --line: rgba(147, 180, 222, .16);
+      --text: #f2f6ff;
+      --muted: #a7b6cc;
+      --blue: #4b8dff;
+      --blue-light: #82b4ff;
+      --cyan: #61d8e8;
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 80% 0%, rgba(44, 104, 194, .22), transparent 34rem),
+        radial-gradient(ellipse at 0% 38%, rgba(29, 91, 155, .13), transparent 30rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    .shell { width: min(var(--max), calc(100% - 44px)); margin: 0 auto; }
+    .topbar {
+      border-bottom: 1px solid var(--line);
+      background: rgba(5, 13, 27, .76);
+    }
+    .topbar-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand { display: flex; align-items: center; gap: 13px; }
+    .brand-mark {
+      width: 42px; height: 42px; display: grid; place-items: center;
+      border: 1px solid rgba(130, 180, 255, .42);
+      border-radius: 13px;
+      color: white; font-weight: 850; letter-spacing: -.08em;
+      background: linear-gradient(145deg, #3478e8, #16396e);
+      box-shadow: 0 8px 28px rgba(42, 112, 230, .2);
+    }
+    .brand-name { font-weight: 800; letter-spacing: .12em; font-size: .94rem; }
+    .brand-sub { color: var(--muted); font-size: .67rem; letter-spacing: .17em; text-transform: uppercase; }
+    .top-label { color: var(--muted); font-size: .78rem; letter-spacing: .13em; text-transform: uppercase; }
+    .hero { padding: 92px 0 78px; position: relative; overflow: hidden; }
+    .hero::after {
+      content: ""; position: absolute; width: 390px; height: 390px; right: -150px; top: 12px;
+      border: 1px solid rgba(107, 167, 255, .13); border-radius: 50%;
+      box-shadow: 0 0 0 45px rgba(107,167,255,.025), 0 0 0 90px rgba(107,167,255,.02);
+      pointer-events: none;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px; color: var(--blue-light);
+      font-size: .75rem; font-weight: 750; letter-spacing: .19em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 27px; height: 1px; background: var(--cyan); }
+    h1 { max-width: 850px; margin: 18px 0 20px; font-size: clamp(2.7rem, 7vw, 5.4rem); line-height: 1.04; letter-spacing: -.055em; }
+    h1 span { color: var(--blue-light); }
+    .hero-copy { max-width: 680px; margin: 0; color: #bdcbe0; font-size: clamp(1rem, 2vw, 1.13rem); }
+    .hero-note { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag { padding: 8px 13px; border: 1px solid var(--line); border-radius: 999px; color: #c4d4ea; background: rgba(15, 35, 62, .6); font-size: .78rem; }
+    section { padding: 68px 0; border-top: 1px solid var(--line); }
+    .section-head { max-width: 700px; margin-bottom: 30px; }
+    .section-kicker { color: var(--cyan); font-size: .72rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    h2 { margin: 8px 0 10px; font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.15; letter-spacing: -.035em; }
+    .section-intro { margin: 0; color: var(--muted); }
+    .about-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 18px; }
+    .card {
+      border: 1px solid var(--line); border-radius: 20px; padding: 27px;
+      background: linear-gradient(145deg, rgba(17, 39, 69, .88), rgba(10, 24, 44, .82));
+      box-shadow: 0 18px 55px rgba(0, 0, 0, .12);
+    }
+    .card p { color: #b7c6da; margin: 0; }
+    .card h3 { margin: 0 0 12px; font-size: 1.12rem; }
+    .identity-label { color: var(--blue-light); font-size: .7rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .identity-title { margin: 8px 0 8px; font-size: 1.55rem; font-weight: 800; letter-spacing: -.035em; }
+    .identity-card { display: flex; flex-direction: column; justify-content: center; min-height: 190px; }
+    .identity-divider { width: 42px; height: 2px; margin: 16px 0; background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+    .focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .focus-card { min-height: 190px; }
+    .number { color: var(--blue-light); font-size: .78rem; font-weight: 800; letter-spacing: .15em; }
+    .focus-card h3 { margin: 18px 0 8px; font-size: 1.1rem; }
+    .focus-card p { color: var(--muted); font-size: .93rem; }
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .project-card { min-height: 218px; position: relative; overflow: hidden; }
+    .project-card::after { content: ""; position: absolute; width: 170px; height: 170px; right: -70px; bottom: -90px; border: 1px solid rgba(115, 173, 255, .18); border-radius: 50%; box-shadow: 0 0 0 22px rgba(115,173,255,.035), 0 0 0 44px rgba(115,173,255,.025); }
+    .project-type { color: var(--cyan); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 800; }
+    .project-card h3 { margin: 13px 0 9px; font-size: 1.55rem; letter-spacing: -.025em; }
+    .project-card p { max-width: 440px; }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .person-card { min-height: 165px; }
+    .person-initial {
+      width: 43px; height: 43px; display: grid; place-items: center; margin-bottom: 18px;
+      color: #eaf3ff; font-weight: 800; border-radius: 13px;
+      border: 1px solid rgba(130,180,255,.26); background: linear-gradient(145deg, #2359a5, #122b50);
+    }
+    .person-card h3 { margin: 0 0 4px; font-size: 1.04rem; }
+    .role { color: var(--blue-light); font-size: .78rem; font-weight: 700; }
+    .team-note { margin-top: 18px; color: #8fa3be; font-size: .84rem; }
+    .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .principle { padding: 21px 22px; border-left: 2px solid var(--blue); background: rgba(13, 29, 53, .58); border-radius: 0 13px 13px 0; }
+    .principle h3 { margin: 0 0 6px; font-size: .98rem; }
+    .principle p { margin: 0; color: var(--muted); font-size: .88rem; }
+    footer { padding: 30px 0 38px; border-top: 1px solid var(--line); color: #8295af; font-size: .82rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .footer-brand { color: #dbe8fb; font-weight: 800; letter-spacing: .1em; }
+    @media (max-width: 760px) {
+      .shell { width: min(var(--max), calc(100% - 32px)); }
+      .hero { padding: 72px 0 60px; }
+      section { padding: 55px 0; }
+      .about-grid, .projects { grid-template-columns: 1fr; }
+      .focus-grid, .team-grid, .principles { grid-template-columns: 1fr; }
+      .top-label { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <div class="brand" aria-label="Mecapatch and TechGamesProduction">
+        <div class="brand-mark">M</div>
+        <div>
+          <div class="brand-name">MECAPATCH</div>
+          <div class="brand-sub">TechGamesProduction</div>
+        </div>
+      </div>
+      <div class="top-label">Game development team</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="shell">
+      <section class="hero" style="border-top:0;">
+        <div class="eyebrow">Mecapatch · Game development</div>
+        <h1>Ideas built into <span>experiences.</span></h1>
+        <p class="hero-copy">
+          TechGamesProduction is the game development team behind Mecapatch. We focus on planning,
+          building, and improving original Roblox experiences through creative design, technical
+          development, and teamwork.
+        </p>
+        <div class="hero-note" aria-label="Team focus">
+          <span class="tag">Roblox experiences</span>
+          <span class="tag">Game systems</span>
+          <span class="tag">Creative production</span>
+          <span class="tag">Team collaboration</span>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <div class="section-kicker">Who we are</div>
+          <h2>A team with a clear purpose.</h2>
+          <p class="section-intro">Mecapatch is the company identity. TechGamesProduction is the team focused on game creation and production.</p>
+        </div>
+        <div class="about-grid">
+          <article class="card">
+            <h3>About the team</h3>
+            <p>
+              We bring ideas from concept to playable experiences. Our work includes shaping game
+              concepts, building environments, developing gameplay systems, creating user interfaces,
+              and testing features so each project can improve through development.
+            </p>
+          </article>
+          <article class="card identity-card">
+            <div class="identity-label">Company identity</div>
+            <div class="identity-title">Mecapatch</div>
+            <div class="identity-divider"></div>
+            <div class="identity-label">Game production team</div>
+            <div class="identity-title">TechGamesProduction</div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <div class="section-kicker">What we do</div>
+          <h2>From the first idea to the final test.</h2>
+          <p class="section-intro">Our production work brings creative direction and technical development together.</p>
+        </div>
+        <div class="focus-grid">
+          <article class="card focus-card">
+            <div class="number">01 / DESIGN</div>
+            <h3>Game concepts &amp; world design</h3>
+            <p>Developing the setting, gameplay direction, maps, environments, and the overall player experience.</p>
+          </article>
+          <article class="card focus-card">
+            <div class="number">02 / DEVELOPMENT</div>
+            <h3>Gameplay &amp; systems</h3>
+            <p>Building the mechanics, scripts, interfaces, and supporting systems that make each experience work.</p>
+          </article>
+          <article class="card focus-card">
+            <div class="number">03 / QUALITY</div>
+            <h3>Testing &amp; improvement</h3>
+            <p>Testing features, finding problems, improving stability, and refining projects as development continues.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <div class="section-kicker">Our projects</div>
+          <h2>Experiences in production.</h2>
+          <p class="section-intro">Our current project lineup includes the following Roblox game titles.</p>
+        </div>
+        <div class="projects">
+          <article class="card project-card">
+            <div class="project-type">Roblox game project</div>
+            <h3>RE:CALL</h3>
+            <p>A survival-focused game project built around tense encounters, teamwork, and objective-driven gameplay.</p>
+          </article>
+          <article class="card project-card">
+            <div class="project-type">Roblox game project</div>
+            <h3>RUSH ISLAND</h3>
+            <p>A separate game project in the TechGamesProduction lineup. Further project details will be shared as its direction develops.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <div class="section-kicker">The team</div>
+          <h2>The people behind the work.</h2>
+          <p class="section-intro">A collaborative team working across leadership and game development.</p>
+        </div>
+        <div class="team-grid">
+          <article class="card person-card">
+            <div class="person-initial">K</div>
+            <h3>Kyvroz</h3>
+            <div class="role">Founder &amp; Owner</div>
+          </article>
+          <article class="card person-card">
+            <div class="person-initial">7</div>
+            <h3>7000kwater</h3>
+            <div class="role">Development Contributor</div>
+          </article>
+          <article class="card person-card">
+            <div class="person-initial">N</div>
+            <h3>Noob123s63</h3>
+            <div class="role">Development Contributor</div>
+          </article>
+        </div>
+        <p class="team-note">The team section shows the currently identified names and roles. Additional staff can be added when their names and official positions are confirmed.</p>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <div class="section-kicker">Our approach</div>
+          <h2>Built on a few important principles.</h2>
+        </div>
+        <div class="principles">
+          <article class="principle">
+            <h3>Quality over rushing</h3>
+            <p>Features should be tested and improved, not simply added for the sake of progress.</p>
+          </article>
+          <article class="principle">
+            <h3>Clear teamwork</h3>
+            <p>Good production depends on communication, responsibility, and cooperation.</p>
+          </article>
+          <article class="principle">
+            <h3>Continuous improvement</h3>
+            <p>Every project can become better through feedback, testing, and careful development.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div><div class="footer-brand">MECAPATCH</div><div>TechGamesProduction · Game development</div></div>
+      <div>© 2026 Mecapatch. All rights reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>
