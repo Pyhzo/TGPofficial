@@ -1,199 +1,1053 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#071326" />
-  <meta name="description" content="Learn how to apply to join TechGamesProduction, the game development team behind Mecapatch." />
-  <title>Join the Team | TechGamesProduction</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="Apply to join the TechGamesProduction team. Submit your staff application online.">
+  <title>Staff Recruitment | TechGamesProduction</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #071326;
-      --panel: rgba(14, 31, 56, .82);
-      --line: rgba(147, 180, 222, .16);
-      --text: #f2f6ff;
-      --muted: #a7b6cc;
-      --blue: #4b8dff;
-      --blue-light: #82b4ff;
-      --cyan: #61d8e8;
-      --max: 900px;
+      --bg: #07111f;
+      --bg-soft: #0b192a;
+      --panel: rgba(13, 29, 47, .88);
+      --panel-2: #10243a;
+      --line: rgba(130, 174, 205, .20);
+      --text: #edf5fb;
+      --muted: #9bb0c2;
+      --accent: #69d5e7;
+      --accent-2: #a6e6ed;
+      --steel: #7692aa;
+      --good: #8fe0bd;
+      --danger: #ff9b9b;
+      --max: 1160px;
     }
+
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       min-height: 100vh;
       color: var(--text);
       background:
-        radial-gradient(ellipse at 80% 0%, rgba(44, 104, 194, .22), transparent 34rem),
-        radial-gradient(ellipse at 0% 38%, rgba(29, 91, 155, .13), transparent 30rem),
-        var(--bg);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.65;
+        radial-gradient(ellipse at 15% 8%, rgba(36, 106, 142, .20), transparent 34%),
+        radial-gradient(ellipse at 90% 35%, rgba(40, 92, 120, .13), transparent 30%),
+        linear-gradient(145deg, #050c16, var(--bg) 48%, #091828);
+      font-family: 'Rajdhani', 'Segoe UI', sans-serif;
+      font-size: 18px;
+      line-height: 1.55;
+      overflow-x: hidden;
     }
-    a { color: var(--blue-light); }
-    .shell { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
-    .topbar { border-bottom: 1px solid var(--line); background: rgba(5, 13, 27, .76); }
-    .topbar-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
-    .brand { display: flex; align-items: center; gap: 13px; }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: .18;
+      background-image:
+        linear-gradient(rgba(125, 170, 197, .07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(125, 170, 197, .07) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black, transparent 86%);
+    }
+
+    a { color: inherit; }
+    button, input, select, textarea { font: inherit; }
+
+    .shell {
+      width: min(var(--max), calc(100% - 42px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: relative;
+      z-index: 5;
+      border-bottom: 1px solid var(--line);
+      background: rgba(5, 13, 23, .78);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+      min-width: 0;
+    }
+
     .brand-mark {
-      width: 42px; height: 42px; display: grid; place-items: center;
-      border: 1px solid rgba(130, 180, 255, .42); border-radius: 13px;
-      color: white; font-weight: 850; letter-spacing: -.08em;
-      background: linear-gradient(145deg, #3478e8, #16396e);
-      box-shadow: 0 8px 28px rgba(42, 112, 230, .2);
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(105, 213, 231, .65);
+      color: var(--accent);
+      font: 700 21px 'Barlow Condensed', sans-serif;
+      letter-spacing: 1px;
+      transform: skew(-7deg);
+      box-shadow: 0 0 20px rgba(105, 213, 231, .10), inset 0 0 15px rgba(105, 213, 231, .08);
     }
-    .brand-name { font-weight: 800; letter-spacing: .12em; font-size: .94rem; }
-    .brand-sub { color: var(--muted); font-size: .67rem; letter-spacing: .17em; text-transform: uppercase; }
-    .back-link { text-decoration: none; font-size: .9rem; }
-    .back-link:hover { color: white; }
-    main { padding: 76px 0 88px; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--blue-light); font-size: .75rem; font-weight: 750; letter-spacing: .19em; text-transform: uppercase; }
-    .eyebrow::before { content: ""; width: 27px; height: 1px; background: var(--cyan); }
-    h1 { max-width: 760px; margin: 18px 0 16px; font-size: clamp(2.5rem, 7vw, 4.6rem); line-height: 1.05; letter-spacing: -.055em; }
-    h1 span { color: var(--blue-light); }
-    .lead { max-width: 700px; margin: 0; color: #bdcbe0; font-size: 1.08rem; }
-    .notice {
-      margin: 30px 0 42px; padding: 18px 20px; border: 1px solid rgba(97, 216, 232, .25);
-      border-left: 3px solid var(--cyan); border-radius: 12px; background: rgba(13, 36, 58, .62);
-      color: #c7d8eb;
+
+    .brand-name {
+      display: block;
+      font: 700 21px 'Barlow Condensed', sans-serif;
+      letter-spacing: 1.5px;
+      line-height: 1.05;
     }
-    .notice strong { color: white; }
-    section { margin-top: 38px; }
-    h2 { margin: 0 0 15px; font-size: clamp(1.45rem, 4vw, 2rem); letter-spacing: -.03em; }
-    .card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-    .card {
-      padding: 22px; border: 1px solid var(--line); border-radius: 17px;
-      background: linear-gradient(145deg, rgba(17, 39, 69, .88), rgba(10, 24, 44, .82));
-      box-shadow: 0 18px 55px rgba(0, 0, 0, .10);
+
+    .brand-sub {
+      display: block;
+      color: var(--muted);
+      font: 11px 'Share Tech Mono', monospace;
+      letter-spacing: 1.2px;
+      margin-top: 4px;
     }
-    .card h3 { margin: 0 0 7px; font-size: 1.05rem; }
-    .card p { margin: 0; color: var(--muted); font-size: .94rem; }
-    .steps { display: grid; gap: 12px; counter-reset: step; }
-    .step { display: grid; grid-template-columns: 42px 1fr; gap: 15px; align-items: start; padding: 17px 19px; border: 1px solid var(--line); border-radius: 14px; background: rgba(13, 29, 53, .58); counter-increment: step; }
-    .step::before { content: counter(step, decimal-leading-zero); color: var(--blue-light); font-size: .82rem; font-weight: 850; letter-spacing: .1em; padding-top: 3px; }
-    .step h3 { margin: 0 0 4px; font-size: 1rem; }
-    .step p { margin: 0; color: var(--muted); font-size: .93rem; }
-    .details { margin: 0; padding-left: 20px; color: var(--muted); }
-    .details li { padding: 4px 0; }
-    .safety { margin-top: 20px; padding: 20px; border: 1px solid rgba(130, 180, 255, .2); border-radius: 15px; background: rgba(10, 25, 46, .72); }
-    .safety h3 { margin: 0 0 7px; font-size: 1rem; }
-    .safety p { margin: 0; color: var(--muted); font-size: .92rem; }
-    footer { padding: 27px 0 34px; border-top: 1px solid var(--line); color: #8295af; font-size: .82rem; }
-    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
-    .footer-brand { color: #dbe8fb; font-weight: 800; letter-spacing: .1em; }
-    @media (max-width: 650px) {
-      .shell { width: min(var(--max), calc(100% - 30px)); }
-      main { padding: 58px 0 68px; }
-      .card-grid { grid-template-columns: 1fr; }
-      .topbar-inner { min-height: 70px; }
-      .back-link { font-size: .82rem; }
+
+    .back-link {
+      color: var(--muted);
+      font: 600 15px 'Rajdhani', sans-serif;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      padding: 9px 15px;
+      transition: .25s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 82px 0 52px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "TGP";
+      position: absolute;
+      right: max(1%, calc((100vw - var(--max)) / 2));
+      top: 15px;
+      color: rgba(130, 190, 214, .035);
+      font: 800 clamp(150px, 27vw, 330px)/1 'Barlow Condensed', sans-serif;
+      letter-spacing: -10px;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+      font: 12px 'Share Tech Mono', monospace;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 790px;
+      margin: 17px 0 15px;
+      font: 800 clamp(48px, 8vw, 88px)/.94 'Barlow Condensed', Impact, sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    h1 span {
+      color: var(--accent);
+      text-shadow: 0 0 28px rgba(105, 213, 231, .20);
+    }
+
+    .hero-copy {
+      max-width: 660px;
+      color: #b7c8d7;
+      font-size: 20px;
+      margin-bottom: 27px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .meta-chip {
+      border: 1px solid var(--line);
+      background: rgba(12, 29, 46, .62);
+      padding: 7px 12px;
+      color: #c2d1dd;
+      font: 11px 'Share Tech Mono', monospace;
+      letter-spacing: .7px;
+    }
+
+    .meta-chip strong {
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    .notice-bar {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      padding: 16px 19px;
+      margin: 0 0 45px;
+      background: linear-gradient(90deg, rgba(105, 213, 231, .10), rgba(105, 213, 231, .025));
+      border: 1px solid rgba(105, 213, 231, .28);
+      border-left: 3px solid var(--accent);
+    }
+
+    .notice-icon {
+      color: var(--accent);
+      font: 22px 'Share Tech Mono', monospace;
+      line-height: 1.1;
+    }
+
+    .notice-bar strong {
+      display: block;
+      font: 700 18px 'Barlow Condensed', sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .notice-bar p {
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .section-heading { margin-bottom: 20px; }
+
+    .section-heading h2 {
+      font: 700 31px/1.05 'Barlow Condensed', sans-serif;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      margin: 8px 0;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .roles-section { padding: 4px 0 58px; }
+
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .role-card {
+      position: relative;
+      padding: 19px 18px 17px;
+      min-height: 140px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(17, 39, 60, .85), rgba(9, 22, 36, .9));
+      overflow: hidden;
+      transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+    }
+
+    .role-card::after {
+      content: "";
+      position: absolute;
+      width: 70px;
+      height: 2px;
+      background: var(--accent);
+      right: -18px;
+      top: 15px;
+      transform: rotate(45deg);
+      opacity: .6;
+    }
+
+    .role-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(105, 213, 231, .55);
+      box-shadow: 0 12px 28px rgba(0,0,0,.20), 0 0 20px rgba(105,213,231,.06);
+    }
+
+    .role-number {
+      display: block;
+      color: var(--accent);
+      font: 11px 'Share Tech Mono', monospace;
+      margin-bottom: 8px;
+    }
+
+    .role-card h3 {
+      font: 700 22px/1.05 'Barlow Condensed', sans-serif;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      margin: 0 0 7px;
+    }
+
+    .role-card p {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 0;
+    }
+
+    .application-layout {
+      display: grid;
+      grid-template-columns: 310px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+      padding-bottom: 75px;
+    }
+
+    .side-panel, .form-panel {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: 0 18px 55px rgba(0, 0, 0, .18);
+    }
+
+    .side-panel {
+      padding: 24px 22px;
+      position: sticky;
+      top: 22px;
+    }
+
+    .side-panel h3 {
+      font: 700 24px 'Barlow Condensed', sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 0 0 12px;
+    }
+
+    .side-panel > p {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .steps {
+      list-style: none;
+      padding: 0;
+      margin: 22px 0 0;
+      counter-reset: steps;
+    }
+
+    .steps li {
+      counter-increment: steps;
+      position: relative;
+      padding: 0 0 20px 42px;
+      color: #c7d5df;
+      font-size: 16px;
+    }
+
+    .steps li:last-child { padding-bottom: 0; }
+
+    .steps li::before {
+      content: counter(steps, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 29px;
+      height: 29px;
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      border: 1px solid rgba(105,213,231,.45);
+      background: rgba(105,213,231,.07);
+      font: 11px 'Share Tech Mono', monospace;
+    }
+
+    .steps li:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 14px;
+      top: 31px;
+      bottom: 3px;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .steps strong {
+      display: block;
+      color: var(--text);
+      font: 700 17px 'Barlow Condensed', sans-serif;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+
+    .side-divider {
+      height: 1px;
+      background: var(--line);
+      margin: 24px 0 19px;
+    }
+
+    .side-note {
+      color: var(--muted);
+      font-size: 14px !important;
+      margin-bottom: 0;
+    }
+
+    .side-note strong { color: var(--accent-2); }
+
+    .form-panel { padding: clamp(22px, 4vw, 38px); }
+
+    .form-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 25px;
+    }
+
+    .form-top h2 {
+      font: 800 34px/1 'Barlow Condensed', sans-serif;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      margin: 7px 0;
+    }
+
+    .form-top p {
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .status-tag {
+      flex: 0 0 auto;
+      border: 1px solid rgba(143,224,189,.35);
+      color: var(--good);
+      background: rgba(143,224,189,.06);
+      padding: 7px 10px;
+      font: 10px 'Share Tech Mono', monospace;
+      letter-spacing: 1px;
+    }
+
+    .form-section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+      font: 12px 'Share Tech Mono', monospace;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 28px 0 15px;
+    }
+
+    .form-section-title::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: var(--line);
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .field { min-width: 0; }
+    .field.full { grid-column: 1 / -1; }
+
+    label {
+      display: block;
+      color: #dbe7ef;
+      font: 600 16px 'Rajdhani', sans-serif;
+      margin-bottom: 7px;
+    }
+
+    .required { color: var(--accent); }
+    .optional { color: #839aab; font-size: 13px; font-weight: 500; }
+
+    input, select, textarea {
+      width: 100%;
+      color: var(--text);
+      background: #071421;
+      border: 1px solid rgba(130,174,205,.27);
+      border-radius: 0;
+      outline: none;
+      padding: 12px 13px;
+      font-size: 16px;
+      transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    input::placeholder, textarea::placeholder { color: #71889a; }
+    select { color-scheme: dark; }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(105,213,231,.10);
+      background: #091a2a;
+    }
+
+    textarea { min-height: 120px; resize: vertical; }
+
+    .hint {
+      color: #8197a8;
+      font-size: 13px;
+      margin: 6px 0 0;
+    }
+
+    .check-row {
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+      margin: 22px 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .check-row input {
+      width: 17px;
+      height: 17px;
+      margin: 4px 0 0;
+      flex: 0 0 auto;
+      accent-color: var(--accent);
+    }
+
+    .submit-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .submit-btn {
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      min-height: 52px;
+      padding: 13px 24px;
+      color: #06111c;
+      background: var(--accent);
+      border: 1px solid var(--accent);
+      font: 800 18px 'Barlow Condensed', sans-serif;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+    }
+
+    .submit-btn::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -80%;
+      width: 45%;
+      height: 200%;
+      background: rgba(255,255,255,.35);
+      transform: rotate(25deg);
+      transition: left .55s ease;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      background: var(--accent-2);
+      box-shadow: 0 8px 25px rgba(105,213,231,.20);
+    }
+
+    .submit-btn:hover::before { left: 140%; }
+    .submit-btn:disabled { opacity: .65; cursor: wait; transform: none; }
+    .submit-arrow { font-size: 22px; line-height: 1; }
+    .form-footnote { color: #8197a8; font-size: 13px; margin: 0; }
+
+    .form-message {
+      display: none;
+      padding: 13px 15px;
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      font-size: 15px;
+    }
+
+    .form-message.show {
+      display: block;
+      animation: messageIn .35s ease both;
+    }
+
+    .form-message.success {
+      color: var(--good);
+      border-color: rgba(143,224,189,.4);
+      background: rgba(143,224,189,.07);
+    }
+
+    .form-message.error {
+      color: var(--danger);
+      border-color: rgba(255,155,155,.4);
+      background: rgba(255,155,155,.06);
+    }
+
+    .hp-field {
+      position: absolute !important;
+      left: -5000px !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 23px 0 30px;
+      color: #8197a8;
+      font: 11px 'Share Tech Mono', monospace;
+      letter-spacing: .6px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-inner strong {
+      color: #bfd2df;
+      font-weight: 400;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .role-card:nth-child(2) { transition-delay: .08s; }
+    .role-card:nth-child(3) { transition-delay: .16s; }
+    .role-card:nth-child(4) { transition-delay: .04s; }
+    .role-card:nth-child(5) { transition-delay: .12s; }
+    .role-card:nth-child(6) { transition-delay: .20s; }
+
+    @keyframes messageIn {
+      from { opacity: 0; transform: translateY(7px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(105,213,231,.0); }
+      50% { box-shadow: 0 0 0 5px rgba(105,213,231,.07); }
+    }
+
+    .brand-mark { animation: pulse 3.2s ease-in-out infinite; }
+
+    @media (max-width: 850px) {
+      .application-layout { grid-template-columns: 1fr; }
+      .side-panel { position: static; }
+      .steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 18px; }
+      .steps li:nth-child(2)::after { display: none; }
+      .role-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 560px) {
+      .shell { width: min(100% - 28px, var(--max)); }
+      .topbar-inner { min-height: 68px; }
+      .brand-name { font-size: 18px; }
+      .brand-sub { font-size: 9px; }
+      .brand-mark { width: 37px; height: 37px; }
+      .back-link { padding: 8px 10px; font-size: 13px; }
+      .hero { padding: 62px 0 38px; }
+      .hero-copy { font-size: 18px; }
+      .notice-bar { margin-bottom: 36px; }
+      .role-grid { grid-template-columns: 1fr; }
+      .role-card { min-height: 0; }
+      .steps { grid-template-columns: 1fr; }
+      .steps li:nth-child(2)::after { display: block; }
+      .field-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .form-top { display: block; }
+      .status-tag { display: inline-block; margin-top: 15px; }
+      .form-panel { padding: 21px 17px; }
+      .submit-btn { width: 100%; }
+      .form-footnote { width: 100%; }
+      .footer-inner { display: block; }
+      .footer-inner span { display: block; margin: 4px 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
+
 <body>
   <header class="topbar">
     <div class="shell topbar-inner">
-      <div class="brand" aria-label="Mecapatch and TechGamesProduction">
-        <div class="brand-mark">M</div>
-        <div>
-          <div class="brand-name">MECAPATCH</div>
-          <div class="brand-sub">TechGamesProduction</div>
-        </div>
-      </div>
-      <a class="back-link" href="./index.html">← Back to home</a>
+      <a class="brand" href="index.html" aria-label="TechGamesProduction home">
+        <span class="brand-mark">TGP</span>
+        <span>
+          <span class="brand-name">TECHGAMESPRODUCTION</span>
+          <span class="brand-sub">STAFF RECRUITMENT DIVISION</span>
+        </span>
+      </a>
+
+      <a class="back-link" href="index.html">← BACK TO MAIN SITE</a>
     </div>
   </header>
 
-  <main class="shell">
-    <div class="eyebrow">Recruitment · TechGamesProduction</div>
-    <h1>Interested in joining <span>the team?</span></h1>
-    <p class="lead">
-      TechGamesProduction (TGP) is the game development team behind Mecapatch. We work together
-      to plan, build, test, and improve Roblox experiences. This page explains what to prepare
-      when applying to become a staff member or contributor.
-    </p>
+  <main>
+    <section class="hero">
+      <div class="shell">
+        <span class="eyebrow">TGP // PERSONNEL INTAKE</span>
+        <h1>JOIN THE <span>UNIT.</span><br>BUILD WHAT'S NEXT.</h1>
+        <p class="hero-copy">
+          TechGamesProduction is looking for creative, reliable, and motivated people who want to help build projects, support our community, and grow as a team.
+        </p>
 
-    <div class="notice">
-      <strong>Recruitment notice:</strong> Application availability and open positions have not
-      been confirmed on this page. Follow TGP's official announcements for information about
-      whether recruitment is open and where applications should be submitted.
+        <div class="hero-meta">
+          <span class="meta-chip">DIVISION: <strong>STAFF</strong></span>
+          <span class="meta-chip">STATUS: <strong>APPLICATIONS OPEN</strong></span>
+          <span class="meta-chip">PROCESS: <strong>ONLINE SUBMISSION</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <div class="shell">
+      <div class="notice-bar reveal">
+        <span class="notice-icon">!</span>
+        <div>
+          <strong>Recruitment notice</strong>
+          <p>Read the position details and requirements before submitting. Please provide honest answers; incomplete or misleading applications may not be considered.</p>
+        </div>
+      </div>
+
+      <section class="roles-section">
+        <div class="section-heading reveal">
+          <span class="eyebrow">01 // OPEN POSITIONS</span>
+          <h2>CHOOSE YOUR POSITION</h2>
+          <p>Select the role that best matches your skills and interests in the application form.</p>
+        </div>
+
+        <div class="role-grid">
+          <article class="role-card reveal">
+            <span class="role-number">POSITION 01</span>
+            <h3>Community Moderator</h3>
+            <p>Help maintain a welcoming, respectful, and organized community.</p>
+          </article>
+
+          <article class="role-card reveal">
+            <span class="role-number">POSITION 02</span>
+            <h3>Game Tester</h3>
+            <p>Test projects, find issues, and provide clear feedback to the team.</p>
+          </article>
+
+          <article class="role-card reveal">
+            <span class="role-number">POSITION 03</span>
+            <h3>Builder / Map Designer</h3>
+            <p>Help create environments, maps, and locations for TGP projects.</p>
+          </article>
+
+          <article class="role-card reveal">
+            <span class="role-number">POSITION 04</span>
+            <h3>Developer / Scripter</h3>
+            <p>Support gameplay systems, scripting, and technical development.</p>
+          </article>
+
+          <article class="role-card reveal">
+            <span class="role-number">POSITION 05</span>
+            <h3>Graphic Designer</h3>
+            <p>Create visual assets, graphics, branding, and promotional materials.</p>
+          </article>
+
+          <article class="role-card reveal">
+            <span class="role-number">POSITION 06</span>
+            <h3>General Staff</h3>
+            <p>Assist with team tasks, coordination, and other production needs.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="application-layout" id="application">
+        <aside class="side-panel reveal">
+          <span class="eyebrow">02 // HOW TO APPLY</span>
+          <h3>Application procedure</h3>
+          <p>Complete the form carefully. Your application will be reviewed by the TGP team.</p>
+
+          <ol class="steps">
+            <li>
+              <strong>Select a position</strong>
+              Choose the role you want to apply for.
+            </li>
+            <li>
+              <strong>Provide your details</strong>
+              Enter your username and a way to contact you.
+            </li>
+            <li>
+              <strong>Answer the questions</strong>
+              Tell us about your skills and motivation.
+            </li>
+            <li>
+              <strong>Submit for review</strong>
+              Wait for the team to contact you about the result.
+            </li>
+          </ol>
+
+          <div class="side-divider"></div>
+
+          <p class="side-note">
+            <strong>REMINDER:</strong> Submitting an application does not guarantee acceptance. Please keep your contact information accurate so the team can reach you.
+          </p>
+        </aside>
+
+        <section class="form-panel reveal" aria-labelledby="form-title">
+          <div class="form-top">
+            <div>
+              <span class="eyebrow">03 // PERSONNEL APPLICATION FORM</span>
+              <h2 id="form-title">Applicant information</h2>
+              <p>Fields marked with <span class="required">*</span> are required.</p>
+            </div>
+
+            <span class="status-tag">● INTAKE ACTIVE</span>
+          </div>
+
+          <form id="staffForm">
+            <div class="hp-field" aria-hidden="true">
+              <label for="website">Leave this field empty</label>
+              <input id="website" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="form-section-title">A // Basic details</div>
+
+            <div class="field-grid">
+              <div class="field">
+                <label for="displayName">Preferred name <span class="required">*</span></label>
+                <input id="displayName" name="Preferred name" type="text" placeholder="The name we should call you" maxlength="60" required>
+              </div>
+
+              <div class="field">
+                <label for="username">Username / in-game name <span class="required">*</span></label>
+                <input id="username" name="Username" type="text" placeholder="Your username" maxlength="60" required>
+              </div>
+
+              <div class="field">
+                <label for="contact">Contact information <span class="required">*</span></label>
+                <input id="contact" name="Contact information" type="text" placeholder="Email, Discord, or another contact" maxlength="120" required>
+                <p class="hint">Provide a contact method the team can use to reach you.</p>
+              </div>
+
+              <div class="field">
+                <label for="timezone">Time zone <span class="optional">(optional)</span></label>
+                <input id="timezone" name="Time zone" type="text" placeholder="Example: GMT+8 / Philippines" maxlength="50">
+              </div>
+
+              <div class="field">
+                <label for="position">Position applying for <span class="required">*</span></label>
+                <select id="position" name="Position applying for" required>
+                  <option value="" disabled selected>Select a position</option>
+                  <option>Community Moderator</option>
+                  <option>Game Tester</option>
+                  <option>Builder / Map Designer</option>
+                  <option>Developer / Scripter</option>
+                  <option>Graphic Designer</option>
+                  <option>General Staff</option>
+                  <option>Other / Not sure yet</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="availability">Availability <span class="required">*</span></label>
+                <select id="availability" name="Availability" required>
+                  <option value="" disabled selected>Select your availability</option>
+                  <option>Several hours each week</option>
+                  <option>Most days</option>
+                  <option>Weekends only</option>
+                  <option>My schedule changes</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-section-title">B // Experience and skills</div>
+
+            <div class="field-grid">
+              <div class="field full">
+                <label for="experience">Do you have any previous experience? <span class="required">*</span></label>
+                <textarea id="experience" name="Previous experience" placeholder="Tell us about relevant experience. If you are new, explain what you have learned or practiced so far." maxlength="1500" required></textarea>
+              </div>
+
+              <div class="field full">
+                <label for="skills">What skills can you contribute to TGP? <span class="required">*</span></label>
+                <textarea id="skills" name="Skills" placeholder="List your skills, tools you know, or tasks you feel confident doing." maxlength="1500" required></textarea>
+              </div>
+            </div>
+
+            <div class="form-section-title">C // Motivation</div>
+
+            <div class="field-grid">
+              <div class="field full">
+                <label for="motivation">Why do you want to join TechGamesProduction? <span class="required">*</span></label>
+                <textarea id="motivation" name="Why do you want to join TGP" placeholder="Tell us why you are interested in joining and what you hope to contribute." maxlength="1500" required></textarea>
+              </div>
+
+              <div class="field full">
+                <label for="scenario">How would you handle a disagreement or difficult situation with another team member? <span class="required">*</span></label>
+                <textarea id="scenario" name="Handling a difficult situation" placeholder="Explain how you would communicate and work toward a solution." maxlength="1500" required></textarea>
+              </div>
+
+              <div class="field full">
+                <label for="extra">Additional information <span class="optional">(optional)</span></label>
+                <textarea id="extra" name="Additional information" placeholder="Anything else you would like the recruitment team to know?" maxlength="1000"></textarea>
+              </div>
+            </div>
+
+            <label class="check-row" for="confirm">
+              <input id="confirm" name="Applicant confirmation" type="checkbox" value="Confirmed" required>
+              <span>
+                I confirm that the information I provided is accurate, and I understand that the TGP team will review my application before making a decision.
+                <span class="required">*</span>
+              </span>
+            </label>
+
+            <div class="submit-row">
+              <button class="submit-btn" id="submitBtn" type="submit">
+                <span>SUBMIT APPLICATION</span>
+                <span class="submit-arrow">→</span>
+              </button>
+
+              <p class="form-footnote">Please submit only once. The recruitment team will contact you using the details provided.</p>
+            </div>
+
+            <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+          </form>
+        </section>
+      </section>
     </div>
-
-    <section>
-      <h2>Who may apply?</h2>
-      <div class="card-grid">
-        <article class="card">
-          <h3>People with useful skills</h3>
-          <p>Applicants may have experience in building, scripting, UI design, 3D modeling,
-            animation, art, testing, or another area that supports game development.</p>
-        </article>
-        <article class="card">
-          <h3>People who work well with others</h3>
-          <p>We value clear communication, respect, reliability, willingness to learn, and the
-            ability to work with other team members.</p>
-        </article>
-      </div>
-    </section>
-
-    <section>
-      <h2>How to apply</h2>
-      <div class="steps">
-        <article class="step">
-          <div><h3>Check recruitment announcements</h3><p>Look for an official TGP announcement confirming that applications are open and explaining the accepted submission method.</p></div>
-        </article>
-        <article class="step">
-          <div><h3>Choose the role that fits your skills</h3><p>Apply for an area where you can contribute. Only choose roles that are listed as open in the recruitment announcement.</p></div>
-        </article>
-        <article class="step">
-          <div><h3>Prepare your application details</h3><p>Introduce yourself, provide your Roblox username, state the role you want, describe your relevant skills, and include examples of your work when available.</p></div>
-        </article>
-        <article class="step">
-          <div><h3>Submit through the official channel</h3><p>Use only the application link or contact method shared through TGP's official channels. Do not send an application to an unofficial account claiming to represent the team.</p></div>
-        </article>
-        <article class="step">
-          <div><h3>Wait for the team's response</h3><p>The team may review your details and contact you about questions, a discussion, or a skills test. Applying does not guarantee acceptance.</p></div>
-        </article>
-      </div>
-    </section>
-
-    <section>
-      <h2>What to include in your application</h2>
-      <div class="card">
-        <ul class="details">
-          <li>Your preferred name or display name.</li>
-          <li>Your Roblox username.</li>
-          <li>The role or development area you are applying for.</li>
-          <li>A short explanation of your skills and relevant experience.</li>
-          <li>Examples of your work, such as builds, scripts, designs, models, or other projects, if available.</li>
-          <li>Your usual availability and how you prefer to communicate with the team.</li>
-          <li>A short explanation of how you could contribute to TGP.</li>
-        </ul>
-      </div>
-      <div class="safety">
-        <h3>Keep your account safe</h3>
-        <p>Never provide your Roblox password, email password, verification code, two-step verification code,
-          or recovery code as part of an application. TGP does not need these details to review your skills.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>What we expect from team members</h2>
-      <div class="card-grid">
-        <article class="card"><h3>Communication</h3><p>Share progress, ask questions when needed, and let the team know when you cannot complete a task on time.</p></article>
-        <article class="card"><h3>Responsibility</h3><p>Be honest about your abilities, respect agreed tasks, and take feedback as an opportunity to improve.</p></article>
-        <article class="card"><h3>Teamwork</h3><p>Respect other members, cooperate during development, and give helpful feedback.</p></article>
-        <article class="card"><h3>Willingness to improve</h3><p>You do not need to know everything. Be ready to learn, practice, and improve your work.</p></article>
-      </div>
-    </section>
   </main>
 
   <footer>
     <div class="shell footer-inner">
-      <div><div class="footer-brand">MECAPATCH</div><div>TechGamesProduction · Game development</div></div>
-      <div>© 2026 Mecapatch. All rights reserved.</div>
+      <span>© <span id="year"></span> <strong>TECHGAMESPRODUCTION</strong></span>
+      <span>PERSONNEL INTAKE // TGP OFFICIAL</span>
     </div>
   </footer>
+
+  <script>
+    /*
+      IMPORTANT SETUP:
+      This page is hosted on GitHub Pages, which cannot receive/store form submissions by itself.
+      Create a form with a service such as Formspree, then replace the placeholder below with your
+      real endpoint, for example: https://formspree.io/f/xxxxxxxx
+
+      Until you add that endpoint, the page will display a setup message and will NOT pretend that
+      an application was sent.
+    */
+
+    const FORM_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reveal sections gently as the visitor scrolls down the page.
+    const revealItems = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealItems.forEach(item => observer.observe(item));
+    } else {
+      revealItems.forEach(item => item.classList.add('visible'));
+    }
+
+    const form = document.getElementById('staffForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const message = document.getElementById('formMessage');
+
+    function showMessage(text, type) {
+      message.textContent = text;
+      message.className = 'form-message show ' + type;
+      message.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      message.className = 'form-message';
+      message.textContent = '';
+
+      if (!form.reportValidity()) return;
+
+      // Honeypot field: silently stop basic automated spam submissions.
+      if (form.elements['_gotcha'].value.trim() !== '') return;
+
+      if (!FORM_ENDPOINT || FORM_ENDPOINT.includes('YOUR_FORM_ID')) {
+        showMessage(
+          'The application form design is ready, but submissions are not connected yet. The website owner must add the form service endpoint in this file before applications can be received.',
+          'error'
+        );
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.querySelector('span').textContent = 'SENDING APPLICATION...';
+
+      try {
+        const response = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (!response.ok) {
+          throw new Error('The form service did not accept the submission.');
+        }
+
+        form.reset();
+
+        showMessage(
+          'APPLICATION RECEIVED. Thank you for applying to TechGamesProduction. Your application has been submitted for review. The team will contact you using the details you provided.',
+          'success'
+        );
+
+      } catch (error) {
+        showMessage(
+          'We could not submit your application. Please check your internet connection and try again. If the problem continues, contact the TGP team through the main website.',
+          'error'
+        );
+
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.querySelector('span').textContent = 'SUBMIT APPLICATION';
+      }
+    });
+  </script>
 </body>
-</html>
+              </html>
