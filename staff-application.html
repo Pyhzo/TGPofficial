@@ -7,6 +7,7 @@
   <meta name="description" content="Apply to join the TechGamesProduction team. Submit your staff application online.">
   <title>Staff Recruitment | TechGamesProduction</title>
 
+  <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -28,8 +29,13 @@
       --max: 1160px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -59,13 +65,20 @@
       mask-image: linear-gradient(to bottom, black, transparent 86%);
     }
 
-    a { color: inherit; }
-    button, input, select, textarea { font: inherit; }
+    a {
+      color: inherit;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
 
     .shell {
       width: min(var(--max), calc(100% - 42px));
       margin: 0 auto;
     }
+
+    /* HEADER */
 
     .topbar {
       position: relative;
@@ -101,7 +114,9 @@
       font: 700 21px 'Barlow Condensed', sans-serif;
       letter-spacing: 1px;
       transform: skew(-7deg);
-      box-shadow: 0 0 20px rgba(105, 213, 231, .10), inset 0 0 15px rgba(105, 213, 231, .08);
+      box-shadow:
+        0 0 20px rgba(105, 213, 231, .10),
+        inset 0 0 15px rgba(105, 213, 231, .08);
     }
 
     .brand-name {
@@ -133,6 +148,13 @@
       border-color: var(--accent);
       transform: translateY(-2px);
     }
+
+    .back-link:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* HERO */
 
     .hero {
       padding: 82px 0 52px;
@@ -169,7 +191,9 @@
       box-shadow: 0 0 10px var(--accent);
     }
 
-    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
 
     h1 {
       max-width: 790px;
@@ -211,6 +235,8 @@
       font-weight: 400;
     }
 
+    /* RECRUITMENT NOTICE */
+
     .notice-bar {
       display: flex;
       gap: 15px;
@@ -242,7 +268,11 @@
       margin: 0;
     }
 
-    .section-heading { margin-bottom: 20px; }
+    /* SECTION HEADINGS */
+
+    .section-heading {
+      margin-bottom: 20px;
+    }
 
     .section-heading h2 {
       font: 700 31px/1.05 'Barlow Condensed', sans-serif;
@@ -257,7 +287,11 @@
       font-size: 17px;
     }
 
-    .roles-section { padding: 4px 0 58px; }
+    /* OPEN POSITIONS */
+
+    .roles-section {
+      padding: 4px 0 58px;
+    }
 
     .role-grid {
       display: grid;
@@ -290,7 +324,9 @@
     .role-card:hover {
       transform: translateY(-5px);
       border-color: rgba(105, 213, 231, .55);
-      box-shadow: 0 12px 28px rgba(0,0,0,.20), 0 0 20px rgba(105,213,231,.06);
+      box-shadow:
+        0 12px 28px rgba(0,0,0,.20),
+        0 0 20px rgba(105,213,231,.06);
     }
 
     .role-number {
@@ -313,6 +349,8 @@
       margin: 0;
     }
 
+    /* APPLICATION LAYOUT */
+
     .application-layout {
       display: grid;
       grid-template-columns: 310px minmax(0, 1fr);
@@ -321,11 +359,14 @@
       padding-bottom: 75px;
     }
 
-    .side-panel, .form-panel {
+    .side-panel,
+    .form-panel {
       border: 1px solid var(--line);
       background: var(--panel);
       box-shadow: 0 18px 55px rgba(0, 0, 0, .18);
     }
+
+    /* APPLICATION PROCEDURE */
 
     .side-panel {
       padding: 24px 22px;
@@ -360,7 +401,9 @@
       font-size: 16px;
     }
 
-    .steps li:last-child { padding-bottom: 0; }
+    .steps li:last-child {
+      padding-bottom: 0;
+    }
 
     .steps li::before {
       content: counter(steps, decimal-leading-zero);
@@ -407,9 +450,15 @@
       margin-bottom: 0;
     }
 
-    .side-note strong { color: var(--accent-2); }
+    .side-note strong {
+      color: var(--accent-2);
+    }
 
-    .form-panel { padding: clamp(22px, 4vw, 38px); }
+    /* FORM PANEL */
+
+    .form-panel {
+      padding: clamp(22px, 4vw, 38px);
+    }
 
     .form-top {
       display: flex;
@@ -468,8 +517,13 @@
       gap: 17px;
     }
 
-    .field { min-width: 0; }
-    .field.full { grid-column: 1 / -1; }
+    .field {
+      min-width: 0;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
 
     label {
       display: block;
@@ -478,10 +532,19 @@
       margin-bottom: 7px;
     }
 
-    .required { color: var(--accent); }
-    .optional { color: #839aab; font-size: 13px; font-weight: 500; }
+    .required {
+      color: var(--accent);
+    }
 
-    input, select, textarea {
+    .optional {
+      color: #839aab;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    input,
+    select,
+    textarea {
       width: 100%;
       color: var(--text);
       background: #071421;
@@ -493,22 +556,35 @@
       transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
     }
 
-    input::placeholder, textarea::placeholder { color: #71889a; }
-    select { color-scheme: dark; }
+    input::placeholder,
+    textarea::placeholder {
+      color: #71889a;
+    }
 
-    input:focus, select:focus, textarea:focus {
+    select {
+      color-scheme: dark;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
       border-color: var(--accent);
       box-shadow: 0 0 0 3px rgba(105,213,231,.10);
       background: #091a2a;
     }
 
-    textarea { min-height: 120px; resize: vertical; }
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
 
     .hint {
       color: #8197a8;
       font-size: 13px;
       margin: 6px 0 0;
     }
+
+    /* CONFIRMATION CHECKBOX */
 
     .check-row {
       display: flex;
@@ -526,6 +602,8 @@
       flex: 0 0 auto;
       accent-color: var(--accent);
     }
+
+    /* SUBMIT BUTTON */
 
     .submit-row {
       display: flex;
@@ -571,10 +649,28 @@
       box-shadow: 0 8px 25px rgba(105,213,231,.20);
     }
 
-    .submit-btn:hover::before { left: 140%; }
-    .submit-btn:disabled { opacity: .65; cursor: wait; transform: none; }
-    .submit-arrow { font-size: 22px; line-height: 1; }
-    .form-footnote { color: #8197a8; font-size: 13px; margin: 0; }
+    .submit-btn:hover::before {
+      left: 140%;
+    }
+
+    .submit-btn:disabled {
+      opacity: .65;
+      cursor: wait;
+      transform: none;
+    }
+
+    .submit-arrow {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .form-footnote {
+      color: #8197a8;
+      font-size: 13px;
+      margin: 0;
+    }
+
+    /* FORM STATUS MESSAGE */
 
     .form-message {
       display: none;
@@ -601,13 +697,12 @@
       background: rgba(255,155,155,.06);
     }
 
-    .hp-field {
-      position: absolute !important;
-      left: -5000px !important;
-      width: 1px !important;
-      height: 1px !important;
-      overflow: hidden !important;
+    /* WEB3FORMS SPAM-PROTECTION FIELD */
+    .botcheck {
+      display: none !important;
     }
+
+    /* FOOTER */
 
     footer {
       border-top: 1px solid var(--line);
@@ -629,6 +724,8 @@
       font-weight: 400;
     }
 
+    /* SCROLL ANIMATION */
+
     .reveal {
       opacity: 0;
       transform: translateY(22px);
@@ -640,234 +737,554 @@
       transform: translateY(0);
     }
 
-    .role-card:nth-child(2) { transition-delay: .08s; }
-    .role-card:nth-child(3) { transition-delay: .16s; }
-    .role-card:nth-child(4) { transition-delay: .04s; }
-    .role-card:nth-child(5) { transition-delay: .12s; }
-    .role-card:nth-child(6) { transition-delay: .20s; }
+    .role-card:nth-child(2) {
+      transition-delay: .08s;
+    }
+
+    .role-card:nth-child(3) {
+      transition-delay: .16s;
+    }
+
+    .role-card:nth-child(4) {
+      transition-delay: .04s;
+    }
+
+    .role-card:nth-child(5) {
+      transition-delay: .12s;
+    }
+
+    .role-card:nth-child(6) {
+      transition-delay: .20s;
+    }
 
     @keyframes messageIn {
-      from { opacity: 0; transform: translateY(7px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(7px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(105,213,231,.0); }
-      50% { box-shadow: 0 0 0 5px rgba(105,213,231,.07); }
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(105,213,231,.0);
+      }
+
+      50% {
+        box-shadow: 0 0 0 5px rgba(105,213,231,.07);
+      }
     }
 
-    .brand-mark { animation: pulse 3.2s ease-in-out infinite; }
+    .brand-mark {
+      animation: pulse 3.2s ease-in-out infinite;
+    }
+
+    /* RESPONSIVE DESIGN */
 
     @media (max-width: 850px) {
-      .application-layout { grid-template-columns: 1fr; }
-      .side-panel { position: static; }
-      .steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 18px; }
-      .steps li:nth-child(2)::after { display: none; }
-      .role-grid { grid-template-columns: repeat(2, 1fr); }
+      .application-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .side-panel {
+        position: static;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px 18px;
+      }
+
+      .steps li:nth-child(2)::after {
+        display: none;
+      }
+
+      .role-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 560px) {
-      .shell { width: min(100% - 28px, var(--max)); }
-      .topbar-inner { min-height: 68px; }
-      .brand-name { font-size: 18px; }
-      .brand-sub { font-size: 9px; }
-      .brand-mark { width: 37px; height: 37px; }
-      .back-link { padding: 8px 10px; font-size: 13px; }
-      .hero { padding: 62px 0 38px; }
-      .hero-copy { font-size: 18px; }
-      .notice-bar { margin-bottom: 36px; }
-      .role-grid { grid-template-columns: 1fr; }
-      .role-card { min-height: 0; }
-      .steps { grid-template-columns: 1fr; }
-      .steps li:nth-child(2)::after { display: block; }
-      .field-grid { grid-template-columns: 1fr; }
-      .field.full { grid-column: auto; }
-      .form-top { display: block; }
-      .status-tag { display: inline-block; margin-top: 15px; }
-      .form-panel { padding: 21px 17px; }
-      .submit-btn { width: 100%; }
-      .form-footnote { width: 100%; }
-      .footer-inner { display: block; }
-      .footer-inner span { display: block; margin: 4px 0; }
+      .shell {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .topbar-inner {
+        min-height: 68px;
+      }
+
+      .brand-name {
+        font-size: 18px;
+      }
+
+      .brand-sub {
+        font-size: 9px;
+      }
+
+      .brand-mark {
+        width: 37px;
+        height: 37px;
+      }
+
+      .back-link {
+        padding: 8px 10px;
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 62px 0 38px;
+      }
+
+      .hero-copy {
+        font-size: 18px;
+      }
+
+      .notice-bar {
+        margin-bottom: 36px;
+      }
+
+      .role-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .role-card {
+        min-height: 0;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .steps li:nth-child(2)::after {
+        display: block;
+      }
+
+      .field-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      .form-top {
+        display: block;
+      }
+
+      .status-tag {
+        display: inline-block;
+        margin-top: 15px;
+      }
+
+      .form-panel {
+        padding: 21px 17px;
+      }
+
+      .submit-btn {
+        width: 100%;
+      }
+
+      .form-footnote {
+        width: 100%;
+      }
+
+      .footer-inner {
+        display: block;
+      }
+
+      .footer-inner span {
+        display: block;
+        margin: 4px 0;
+      }
     }
 
+    /* ACCESSIBILITY: REDUCED MOTION */
+
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         scroll-behavior: auto !important;
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
       }
 
-      .reveal { opacity: 1; transform: none; }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- HEADER -->
   <header class="topbar">
     <div class="shell topbar-inner">
+
       <a class="brand" href="index.html" aria-label="TechGamesProduction home">
         <span class="brand-mark">TGP</span>
+
         <span>
           <span class="brand-name">TECHGAMESPRODUCTION</span>
           <span class="brand-sub">STAFF RECRUITMENT DIVISION</span>
         </span>
       </a>
 
-      <a class="back-link" href="index.html">← BACK TO MAIN SITE</a>
+      <a class="back-link" href="index.html">
+        ← BACK TO MAIN SITE
+      </a>
+
     </div>
   </header>
 
   <main>
+
+    <!-- HERO -->
     <section class="hero">
       <div class="shell">
-        <span class="eyebrow">TGP // PERSONNEL INTAKE</span>
-        <h1>JOIN THE <span>UNIT.</span><br>BUILD WHAT'S NEXT.</h1>
+
+        <span class="eyebrow">
+          TGP // PERSONNEL INTAKE
+        </span>
+
+        <h1>
+          JOIN THE <span>UNIT.</span><br>
+          BUILD WHAT'S NEXT.
+        </h1>
+
         <p class="hero-copy">
           TechGamesProduction is looking for creative, reliable, and motivated people who want to help build projects, support our community, and grow as a team.
         </p>
 
         <div class="hero-meta">
-          <span class="meta-chip">DIVISION: <strong>STAFF</strong></span>
-          <span class="meta-chip">STATUS: <strong>APPLICATIONS OPEN</strong></span>
-          <span class="meta-chip">PROCESS: <strong>ONLINE SUBMISSION</strong></span>
+          <span class="meta-chip">
+            DIVISION: <strong>STAFF</strong>
+          </span>
+
+          <span class="meta-chip">
+            STATUS: <strong>APPLICATIONS OPEN</strong>
+          </span>
+
+          <span class="meta-chip">
+            PROCESS: <strong>ONLINE SUBMISSION</strong>
+          </span>
         </div>
+
       </div>
     </section>
 
     <div class="shell">
+
+      <!-- RECRUITMENT NOTICE -->
       <div class="notice-bar reveal">
+
         <span class="notice-icon">!</span>
+
         <div>
           <strong>Recruitment notice</strong>
-          <p>Read the position details and requirements before submitting. Please provide honest answers; incomplete or misleading applications may not be considered.</p>
+
+          <p>
+            Read the position details and requirements before submitting.
+            Please provide honest answers; incomplete or misleading applications
+            may not be considered.
+          </p>
         </div>
+
       </div>
 
+      <!-- OPEN POSITIONS -->
       <section class="roles-section">
+
         <div class="section-heading reveal">
-          <span class="eyebrow">01 // OPEN POSITIONS</span>
+
+          <span class="eyebrow">
+            01 // OPEN POSITIONS
+          </span>
+
           <h2>CHOOSE YOUR POSITION</h2>
-          <p>Select the role that best matches your skills and interests in the application form.</p>
+
+          <p>
+            Select the role that best matches your skills and interests in the application form.
+          </p>
+
         </div>
 
         <div class="role-grid">
+
           <article class="role-card reveal">
             <span class="role-number">POSITION 01</span>
             <h3>Community Moderator</h3>
-            <p>Help maintain a welcoming, respectful, and organized community.</p>
+            <p>
+              Help maintain a welcoming, respectful, and organized community.
+            </p>
           </article>
 
           <article class="role-card reveal">
             <span class="role-number">POSITION 02</span>
             <h3>Game Tester</h3>
-            <p>Test projects, find issues, and provide clear feedback to the team.</p>
+            <p>
+              Test projects, find issues, and provide clear feedback to the team.
+            </p>
           </article>
 
           <article class="role-card reveal">
             <span class="role-number">POSITION 03</span>
             <h3>Builder / Map Designer</h3>
-            <p>Help create environments, maps, and locations for TGP projects.</p>
+            <p>
+              Help create environments, maps, and locations for TGP projects.
+            </p>
           </article>
 
           <article class="role-card reveal">
             <span class="role-number">POSITION 04</span>
             <h3>Developer / Scripter</h3>
-            <p>Support gameplay systems, scripting, and technical development.</p>
+            <p>
+              Support gameplay systems, scripting, and technical development.
+            </p>
           </article>
 
           <article class="role-card reveal">
             <span class="role-number">POSITION 05</span>
             <h3>Graphic Designer</h3>
-            <p>Create visual assets, graphics, branding, and promotional materials.</p>
+            <p>
+              Create visual assets, graphics, branding, and promotional materials.
+            </p>
           </article>
 
           <article class="role-card reveal">
             <span class="role-number">POSITION 06</span>
             <h3>General Staff</h3>
-            <p>Assist with team tasks, coordination, and other production needs.</p>
+            <p>
+              Assist with team tasks, coordination, and other production needs.
+            </p>
           </article>
+
         </div>
       </section>
 
+      <!-- APPLICATION LAYOUT -->
       <section class="application-layout" id="application">
+
+        <!-- APPLICATION PROCEDURE -->
         <aside class="side-panel reveal">
-          <span class="eyebrow">02 // HOW TO APPLY</span>
+
+          <span class="eyebrow">
+            02 // HOW TO APPLY
+          </span>
+
           <h3>Application procedure</h3>
-          <p>Complete the form carefully. Your application will be reviewed by the TGP team.</p>
+
+          <p>
+            Complete the form carefully. Your application will be reviewed by the TGP team.
+          </p>
 
           <ol class="steps">
+
             <li>
               <strong>Select a position</strong>
               Choose the role you want to apply for.
             </li>
+
             <li>
               <strong>Provide your details</strong>
-              Enter your username and a way to contact you.
+              Enter your username and contact information.
             </li>
+
             <li>
               <strong>Answer the questions</strong>
               Tell us about your skills and motivation.
             </li>
+
             <li>
               <strong>Submit for review</strong>
               Wait for the team to contact you about the result.
             </li>
+
           </ol>
 
           <div class="side-divider"></div>
 
           <p class="side-note">
-            <strong>REMINDER:</strong> Submitting an application does not guarantee acceptance. Please keep your contact information accurate so the team can reach you.
+            <strong>REMINDER:</strong>
+            Submitting an application does not guarantee acceptance.
+            Please keep your contact information accurate so the team can reach you.
           </p>
+
         </aside>
 
+        <!-- APPLICATION FORM -->
         <section class="form-panel reveal" aria-labelledby="form-title">
+
           <div class="form-top">
+
             <div>
-              <span class="eyebrow">03 // PERSONNEL APPLICATION FORM</span>
-              <h2 id="form-title">Applicant information</h2>
-              <p>Fields marked with <span class="required">*</span> are required.</p>
+              <span class="eyebrow">
+                03 // PERSONNEL APPLICATION FORM
+              </span>
+
+              <h2 id="form-title">
+                Applicant information
+              </h2>
+
+              <p>
+                Fields marked with <span class="required">*</span> are required.
+              </p>
             </div>
 
-            <span class="status-tag">● INTAKE ACTIVE</span>
+            <span class="status-tag">
+              ● INTAKE ACTIVE
+            </span>
+
           </div>
 
-          <form id="staffForm">
-            <div class="hp-field" aria-hidden="true">
-              <label for="website">Leave this field empty</label>
-              <input id="website" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+          <!-- WEB3FORMS APPLICATION FORM -->
+          <form
+            id="staffForm"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+          >
+
+            <!-- WEB3FORMS ACCESS KEY -->
+            <input
+              type="hidden"
+              name="access_key"
+              value="deffc817-9277-4f37-a951-b3108f921fc0"
+            >
+
+            <!-- EMAIL SUBJECT -->
+            <input
+              type="hidden"
+              name="subject"
+              value="New TGP Staff Application"
+            >
+
+            <!-- SENDER NAME -->
+            <input
+              type="hidden"
+              name="from_name"
+              value="TechGamesProduction Recruitment"
+            >
+
+            <!-- SPAM PROTECTION -->
+            <input
+              type="checkbox"
+              name="botcheck"
+              class="botcheck"
+              tabindex="-1"
+              autocomplete="off"
+            >
+
+            <!-- BASIC DETAILS -->
+            <div class="form-section-title">
+              A // Basic details
             </div>
 
-            <div class="form-section-title">A // Basic details</div>
-
             <div class="field-grid">
+
               <div class="field">
-                <label for="displayName">Preferred name <span class="required">*</span></label>
-                <input id="displayName" name="Preferred name" type="text" placeholder="The name we should call you" maxlength="60" required>
+                <label for="displayName">
+                  Preferred name <span class="required">*</span>
+                </label>
+
+                <input
+                  id="displayName"
+                  name="Preferred name"
+                  type="text"
+                  placeholder="The name we should call you"
+                  maxlength="60"
+                  required
+                >
               </div>
 
               <div class="field">
-                <label for="username">Username / in-game name <span class="required">*</span></label>
-                <input id="username" name="Username" type="text" placeholder="Your username" maxlength="60" required>
+                <label for="username">
+                  Username / in-game name <span class="required">*</span>
+                </label>
+
+                <input
+                  id="username"
+                  name="Username"
+                  type="text"
+                  placeholder="Your username"
+                  maxlength="60"
+                  required
+                >
               </div>
 
               <div class="field">
-                <label for="contact">Contact information <span class="required">*</span></label>
-                <input id="contact" name="Contact information" type="text" placeholder="Email, Discord, or another contact" maxlength="120" required>
-                <p class="hint">Provide a contact method the team can use to reach you.</p>
+                <label for="email">
+                  Email address <span class="required">*</span>
+                </label>
+
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="Your email address"
+                  maxlength="120"
+                  autocomplete="email"
+                  required
+                >
+
+                <p class="hint">
+                  Provide a valid email address so the team can reply to you.
+                </p>
               </div>
 
               <div class="field">
-                <label for="timezone">Time zone <span class="optional">(optional)</span></label>
-                <input id="timezone" name="Time zone" type="text" placeholder="Example: GMT+8 / Philippines" maxlength="50">
+                <label for="contact">
+                  Other contact information <span class="optional">(optional)</span>
+                </label>
+
+                <input
+                  id="contact"
+                  name="Other contact information"
+                  type="text"
+                  placeholder="Discord, Roblox, or another contact"
+                  maxlength="120"
+                >
+
+                <p class="hint">
+                  You can provide another way for the team to contact you.
+                </p>
               </div>
 
               <div class="field">
-                <label for="position">Position applying for <span class="required">*</span></label>
-                <select id="position" name="Position applying for" required>
-                  <option value="" disabled selected>Select a position</option>
+                <label for="timezone">
+                  Time zone <span class="optional">(optional)</span>
+                </label>
+
+                <input
+                  id="timezone"
+                  name="Time zone"
+                  type="text"
+                  placeholder="Example: GMT+8 / Philippines"
+                  maxlength="50"
+                >
+              </div>
+
+              <div class="field">
+                <label for="position">
+                  Position applying for <span class="required">*</span>
+                </label>
+
+                <select
+                  id="position"
+                  name="Position applying for"
+                  required
+                >
+                  <option value="" disabled selected>
+                    Select a position
+                  </option>
+
                   <option>Community Moderator</option>
                   <option>Game Tester</option>
                   <option>Builder / Map Designer</option>
@@ -879,175 +1296,339 @@
               </div>
 
               <div class="field">
-                <label for="availability">Availability <span class="required">*</span></label>
-                <select id="availability" name="Availability" required>
-                  <option value="" disabled selected>Select your availability</option>
+                <label for="availability">
+                  Availability <span class="required">*</span>
+                </label>
+
+                <select
+                  id="availability"
+                  name="Availability"
+                  required
+                >
+                  <option value="" disabled selected>
+                    Select your availability
+                  </option>
+
                   <option>Several hours each week</option>
                   <option>Most days</option>
                   <option>Weekends only</option>
                   <option>My schedule changes</option>
                 </select>
               </div>
+
             </div>
 
-            <div class="form-section-title">B // Experience and skills</div>
+            <!-- EXPERIENCE AND SKILLS -->
+            <div class="form-section-title">
+              B // Experience and skills
+            </div>
 
             <div class="field-grid">
+
               <div class="field full">
-                <label for="experience">Do you have any previous experience? <span class="required">*</span></label>
-                <textarea id="experience" name="Previous experience" placeholder="Tell us about relevant experience. If you are new, explain what you have learned or practiced so far." maxlength="1500" required></textarea>
+                <label for="experience">
+                  Do you have any previous experience?
+                  <span class="required">*</span>
+                </label>
+
+                <textarea
+                  id="experience"
+                  name="Previous experience"
+                  placeholder="Tell us about relevant experience. If you are new, explain what you have learned or practiced so far."
+                  maxlength="1500"
+                  required
+                ></textarea>
               </div>
 
               <div class="field full">
-                <label for="skills">What skills can you contribute to TGP? <span class="required">*</span></label>
-                <textarea id="skills" name="Skills" placeholder="List your skills, tools you know, or tasks you feel confident doing." maxlength="1500" required></textarea>
+                <label for="skills">
+                  What skills can you contribute to TGP?
+                  <span class="required">*</span>
+                </label>
+
+                <textarea
+                  id="skills"
+                  name="Skills"
+                  placeholder="List your skills, tools you know, or tasks you feel confident doing."
+                  maxlength="1500"
+                  required
+                ></textarea>
               </div>
+
             </div>
 
-            <div class="form-section-title">C // Motivation</div>
+            <!-- MOTIVATION -->
+            <div class="form-section-title">
+              C // Motivation
+            </div>
 
             <div class="field-grid">
+
               <div class="field full">
-                <label for="motivation">Why do you want to join TechGamesProduction? <span class="required">*</span></label>
-                <textarea id="motivation" name="Why do you want to join TGP" placeholder="Tell us why you are interested in joining and what you hope to contribute." maxlength="1500" required></textarea>
+                <label for="motivation">
+                  Why do you want to join TechGamesProduction?
+                  <span class="required">*</span>
+                </label>
+
+                <textarea
+                  id="motivation"
+                  name="Why do you want to join TGP"
+                  placeholder="Tell us why you are interested in joining and what you hope to contribute."
+                  maxlength="1500"
+                  required
+                ></textarea>
               </div>
 
               <div class="field full">
-                <label for="scenario">How would you handle a disagreement or difficult situation with another team member? <span class="required">*</span></label>
-                <textarea id="scenario" name="Handling a difficult situation" placeholder="Explain how you would communicate and work toward a solution." maxlength="1500" required></textarea>
+                <label for="scenario">
+                  How would you handle a disagreement or difficult situation with another team member?
+                  <span class="required">*</span>
+                </label>
+
+                <textarea
+                  id="scenario"
+                  name="Handling a difficult situation"
+                  placeholder="Explain how you would communicate and work toward a solution."
+                  maxlength="1500"
+                  required
+                ></textarea>
               </div>
 
               <div class="field full">
-                <label for="extra">Additional information <span class="optional">(optional)</span></label>
-                <textarea id="extra" name="Additional information" placeholder="Anything else you would like the recruitment team to know?" maxlength="1000"></textarea>
+                <label for="extra">
+                  Additional information <span class="optional">(optional)</span>
+                </label>
+
+                <textarea
+                  id="extra"
+                  name="Additional information"
+                  placeholder="Anything else you would like the recruitment team to know?"
+                  maxlength="1000"
+                ></textarea>
               </div>
+
             </div>
 
+            <!-- APPLICANT CONFIRMATION -->
             <label class="check-row" for="confirm">
-              <input id="confirm" name="Applicant confirmation" type="checkbox" value="Confirmed" required>
+
+              <input
+                id="confirm"
+                name="Applicant confirmation"
+                type="checkbox"
+                value="Confirmed"
+                required
+              >
+
               <span>
-                I confirm that the information I provided is accurate, and I understand that the TGP team will review my application before making a decision.
+                I confirm that the information I provided is accurate,
+                and I understand that the TGP team will review my application
+                before making a decision.
                 <span class="required">*</span>
               </span>
+
             </label>
 
+            <!-- SUBMIT -->
             <div class="submit-row">
+
               <button class="submit-btn" id="submitBtn" type="submit">
                 <span>SUBMIT APPLICATION</span>
                 <span class="submit-arrow">→</span>
               </button>
 
-              <p class="form-footnote">Please submit only once. The recruitment team will contact you using the details provided.</p>
+              <p class="form-footnote">
+                Please submit only once. The recruitment team will contact you using the details provided.
+              </p>
+
             </div>
 
-            <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+            <!-- SUCCESS / ERROR MESSAGE -->
+            <div
+              id="formMessage"
+              class="form-message"
+              role="status"
+              aria-live="polite"
+            ></div>
+
           </form>
+
         </section>
+
       </section>
+
     </div>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="shell footer-inner">
-      <span>© <span id="year"></span> <strong>TECHGAMESPRODUCTION</strong></span>
-      <span>PERSONNEL INTAKE // TGP OFFICIAL</span>
+
+      <span>
+        © <span id="year"></span>
+        <strong>TECHGAMESPRODUCTION</strong>
+      </span>
+
+      <span>
+        PERSONNEL INTAKE // TGP OFFICIAL
+      </span>
+
     </div>
   </footer>
 
+  <!-- JAVASCRIPT -->
   <script>
-    /*
-      IMPORTANT SETUP:
-      This page is hosted on GitHub Pages, which cannot receive/store form submissions by itself.
-      Create a form with a service such as Formspree, then replace the placeholder below with your
-      real endpoint, for example: https://formspree.io/f/xxxxxxxx
 
-      Until you add that endpoint, the page will display a setup message and will NOT pretend that
-      an application was sent.
-    */
+    // AUTOMATIC FOOTER YEAR
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
 
-    const FORM_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
 
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Reveal sections gently as the visitor scrolls down the page.
+    // SCROLL REVEAL ANIMATIONS
     const revealItems = document.querySelectorAll('.reveal');
 
     if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
 
-      revealItems.forEach(item => observer.observe(item));
+      const observer = new IntersectionObserver((entries, obs) => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add('visible');
+
+            obs.unobserve(entry.target);
+
+          }
+
+        });
+
+      }, {
+        threshold: 0.12
+      });
+
+      revealItems.forEach(item => {
+        observer.observe(item);
+      });
+
     } else {
-      revealItems.forEach(item => item.classList.add('visible'));
+
+      revealItems.forEach(item => {
+        item.classList.add('visible');
+      });
+
     }
 
+
+    // WEB3FORMS APPLICATION SUBMISSION
     const form = document.getElementById('staffForm');
     const submitBtn = document.getElementById('submitBtn');
     const message = document.getElementById('formMessage');
 
     function showMessage(text, type) {
+
       message.textContent = text;
+
       message.className = 'form-message show ' + type;
-      message.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      message.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest'
+      });
+
     }
 
+
     form.addEventListener('submit', async (event) => {
+
       event.preventDefault();
 
       message.className = 'form-message';
       message.textContent = '';
 
-      if (!form.reportValidity()) return;
-
-      // Honeypot field: silently stop basic automated spam submissions.
-      if (form.elements['_gotcha'].value.trim() !== '') return;
-
-      if (!FORM_ENDPOINT || FORM_ENDPOINT.includes('YOUR_FORM_ID')) {
-        showMessage(
-          'The application form design is ready, but submissions are not connected yet. The website owner must add the form service endpoint in this file before applications can be received.',
-          'error'
-        );
+      // CHECK REQUIRED FIELDS
+      if (!form.reportValidity()) {
         return;
       }
 
+      // CHECK WEB3FORMS HONEYPOT
+      const botcheck = form.querySelector('[name="botcheck"]');
+
+      if (botcheck && botcheck.checked) {
+        return;
+      }
+
+      // PREVENT MULTIPLE SUBMISSIONS
       submitBtn.disabled = true;
-      submitBtn.querySelector('span').textContent = 'SENDING APPLICATION...';
+
+      submitBtn.querySelector('span').textContent =
+        'SENDING APPLICATION...';
 
       try {
-        const response = await fetch(FORM_ENDPOINT, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
 
-        if (!response.ok) {
-          throw new Error('The form service did not accept the submission.');
-        }
+        // COLLECT FORM DATA
+        const formData = new FormData(form);
 
-        form.reset();
-
-        showMessage(
-          'APPLICATION RECEIVED. Thank you for applying to TechGamesProduction. Your application has been submitted for review. The team will contact you using the details you provided.',
-          'success'
+        // SEND APPLICATION TO WEB3FORMS
+        const response = await fetch(
+          'https://api.web3forms.com/submit',
+          {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          }
         );
 
+        // READ WEB3FORMS RESPONSE
+        const result = await response.json();
+
+        // CONFIRM SUCCESS
+        if (response.ok && result.success) {
+
+          form.reset();
+
+          showMessage(
+            'APPLICATION RECEIVED. Thank you for applying to TechGamesProduction. Your application has been submitted successfully. The team will review your information and contact you using the email address you provided.',
+            'success'
+          );
+
+        } else {
+
+          const errorMessage =
+            result.message ||
+            (result.body && result.body.message) ||
+            'Web3Forms could not process your application.';
+
+          showMessage(
+            'SUBMISSION FAILED: ' + errorMessage +
+            ' Please check your information and try again.',
+            'error'
+          );
+
+        }
+
       } catch (error) {
+
         showMessage(
-          'We could not submit your application. Please check your internet connection and try again. If the problem continues, contact the TGP team through the main website.',
+          'CONNECTION ERROR. We could not reach the application service. Please check your internet connection and try again.',
           'error'
         );
 
       } finally {
+
+        // RESTORE BUTTON
         submitBtn.disabled = false;
-        submitBtn.querySelector('span').textContent = 'SUBMIT APPLICATION';
+
+        submitBtn.querySelector('span').textContent =
+          'SUBMIT APPLICATION';
+
       }
+
     });
+
   </script>
+
 </body>
-              </html>
+                                         </html>
