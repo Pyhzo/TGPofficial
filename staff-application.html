@@ -603,6 +603,33 @@
       accent-color: var(--accent);
     }
 
+    /* CAPTCHA SECURITY */
+
+    .captcha-section {
+      margin: 25px 0 22px;
+      padding: 17px;
+      border: 1px solid var(--line);
+      background: rgba(7, 20, 33, .65);
+    }
+
+    .captcha-heading {
+      color: var(--accent);
+      font: 12px 'Share Tech Mono', monospace;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .captcha-description {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .h-captcha {
+      min-height: 78px;
+    }
+
     /* SUBMIT BUTTON */
 
     .submit-row {
@@ -697,7 +724,8 @@
       background: rgba(255,155,155,.06);
     }
 
-    /* WEB3FORMS SPAM-PROTECTION FIELD */
+    /* HONEYPOT */
+
     .botcheck {
       display: none !important;
     }
@@ -900,6 +928,10 @@
       .footer-inner span {
         display: block;
         margin: 4px 0;
+      }
+
+      .captcha-section {
+        padding: 13px;
       }
     }
 
@@ -1173,11 +1205,12 @@
               value="TechGamesProduction Recruitment"
             >
 
-            <!-- SPAM PROTECTION -->
+            <!-- HONEYPOT SPAM PROTECTION -->
             <input
               type="checkbox"
               name="botcheck"
               class="botcheck"
+              style="display: none;"
               tabindex="-1"
               autocomplete="off"
             >
@@ -1220,40 +1253,21 @@
               </div>
 
               <div class="field">
-                <label for="email">
-                  Email address <span class="required">*</span>
-                </label>
-
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="Your email address"
-                  maxlength="120"
-                  autocomplete="email"
-                  required
-                >
-
-                <p class="hint">
-                  Provide a valid email address so the team can reply to you.
-                </p>
-              </div>
-
-              <div class="field">
                 <label for="contact">
-                  Other contact information <span class="optional">(optional)</span>
+                  Contact information <span class="required">*</span>
                 </label>
 
                 <input
                   id="contact"
-                  name="Other contact information"
+                  name="Contact information"
                   type="text"
-                  placeholder="Discord, Roblox, or another contact"
+                  placeholder="Email, Discord, or another contact"
                   maxlength="120"
+                  required
                 >
 
                 <p class="hint">
-                  You can provide another way for the team to contact you.
+                  Provide a contact method the team can use to reach you.
                 </p>
               </div>
 
@@ -1409,6 +1423,27 @@
 
             </div>
 
+            <!-- CAPTCHA SECURITY -->
+            <div class="captcha-section">
+
+              <div class="captcha-heading">
+                D // Security verification
+              </div>
+
+              <p class="captcha-description">
+                Complete this security check to verify that your application
+                is being submitted by a real person.
+              </p>
+
+              <!-- WEB3FORMS hCAPTCHA -->
+              <div
+                class="h-captcha"
+                data-captcha="true"
+                data-theme="dark"
+              ></div>
+
+            </div>
+
             <!-- APPLICANT CONFIRMATION -->
             <label class="check-row" for="confirm">
 
@@ -1476,6 +1511,9 @@
     </div>
   </footer>
 
+  <!-- WEB3FORMS hCAPTCHA SCRIPT -->
+  <script src="https://web3forms.com/client/script.js" async defer></script>
+
   <!-- JAVASCRIPT -->
   <script>
 
@@ -1539,6 +1577,7 @@
     }
 
 
+    // FORM SUBMISSION EVENT
     form.addEventListener('submit', async (event) => {
 
       event.preventDefault();
@@ -1546,17 +1585,42 @@
       message.className = 'form-message';
       message.textContent = '';
 
-      // CHECK REQUIRED FIELDS
+      // CHECK REQUIRED FORM FIELDS
       if (!form.reportValidity()) {
         return;
       }
 
-      // CHECK WEB3FORMS HONEYPOT
+
+      // CHECK HONEYPOT FIELD
+      // A checked hidden honeypot is treated as suspicious.
       const botcheck = form.querySelector('[name="botcheck"]');
 
       if (botcheck && botcheck.checked) {
+
+        showMessage(
+          'SUBMISSION BLOCKED. The security check could not verify this submission.',
+          'error'
+        );
+
         return;
       }
+
+
+      // CHECK hCAPTCHA RESPONSE
+      const captchaField = form.querySelector(
+        'textarea[name="h-captcha-response"]'
+      );
+
+      if (!captchaField || !captchaField.value.trim()) {
+
+        showMessage(
+          'SECURITY VERIFICATION REQUIRED. Please complete the CAPTCHA before submitting your application.',
+          'error'
+        );
+
+        return;
+      }
+
 
       // PREVENT MULTIPLE SUBMISSIONS
       submitBtn.disabled = true;
@@ -1564,10 +1628,12 @@
       submitBtn.querySelector('span').textContent =
         'SENDING APPLICATION...';
 
+
       try {
 
         // COLLECT FORM DATA
         const formData = new FormData(form);
+
 
         // SEND APPLICATION TO WEB3FORMS
         const response = await fetch(
@@ -1581,21 +1647,34 @@
           }
         );
 
+
         // READ WEB3FORMS RESPONSE
         const result = await response.json();
 
-        // CONFIRM SUCCESS
+
+        // CHECK SUCCESS
         if (response.ok && result.success) {
 
+          // CLEAR FORM
           form.reset();
 
+          // RESET CAPTCHA WHEN AVAILABLE
+          if (
+            window.hcaptcha &&
+            typeof window.hcaptcha.reset === 'function'
+          ) {
+            window.hcaptcha.reset();
+          }
+
+          // DISPLAY SUCCESS MESSAGE
           showMessage(
-            'APPLICATION RECEIVED. Thank you for applying to TechGamesProduction. Your application has been submitted successfully. The team will review your information and contact you using the email address you provided.',
+            'APPLICATION RECEIVED. Thank you for applying to TechGamesProduction. Your application has been submitted successfully. The team will review your information and contact you using the details you provided.',
             'success'
           );
 
         } else {
 
+          // DISPLAY SERVER ERROR
           const errorMessage =
             result.message ||
             (result.body && result.body.message) ||
@@ -1607,18 +1686,35 @@
             'error'
           );
 
+          // RESET CAPTCHA AFTER A FAILED ATTEMPT
+          if (
+            window.hcaptcha &&
+            typeof window.hcaptcha.reset === 'function'
+          ) {
+            window.hcaptcha.reset();
+          }
+
         }
 
       } catch (error) {
 
+        // CONNECTION ERROR
         showMessage(
           'CONNECTION ERROR. We could not reach the application service. Please check your internet connection and try again.',
           'error'
         );
 
+        // RESET CAPTCHA AFTER A CONNECTION ERROR
+        if (
+          window.hcaptcha &&
+          typeof window.hcaptcha.reset === 'function'
+        ) {
+          window.hcaptcha.reset();
+        }
+
       } finally {
 
-        // RESTORE BUTTON
+        // RESTORE SUBMIT BUTTON
         submitBtn.disabled = false;
 
         submitBtn.querySelector('span').textContent =
@@ -1631,4 +1727,4 @@
   </script>
 
 </body>
-                                         </html>
+  </html>
